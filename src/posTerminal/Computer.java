@@ -1,0 +1,39 @@
+package posTerminal;
+
+public class Computer extends Electronics {
+
+	private double storage;
+
+	public Computer() {
+
+	}
+
+	public Computer(String make, String category, String name, double price) {
+		super(make, category, name, price);
+
+	}
+
+	public Computer(String processor, String memory) {
+		super(processor, memory);
+
+	}
+
+	public Computer(double storage) {
+		super();
+		this.storage = storage;
+	}
+
+	public double getStorage() {
+		return storage;
+	}
+
+	public void setStorage(double storage) {
+		this.storage = storage;
+	}
+
+	@Override
+	public String toString() {
+		return storage + "TB";
+	}
+
+}
