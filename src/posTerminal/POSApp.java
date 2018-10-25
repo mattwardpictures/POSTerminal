@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class POSApp {
 
@@ -16,6 +17,7 @@ public class POSApp {
 	static String fileName = "products.txt";
 
 	public static void main(String[] args) {
+		Scanner scan = new Scanner (System.in);
 
 		ArrayList<Products> menu = new ArrayList<>();
 
@@ -80,12 +82,33 @@ public class POSApp {
 		//writeToFile(directoryFolder, fileName, menu);
 		
 		
-		System.out.println("Welcome Best Butt");
+		System.out.println("Welcome Best Butt!");
+		System.out.println("How can we help you today?");
+	    int userChoice=Validator.getInt(scan, "1.Show our most current inventory, and start your order. \n2.Add to our inventory.\n3.Exit the store." , 1, 3);
+		System.out.println(" ");
+		
+		
+		if (userChoice == 1) {
 		System.out.printf("%-15s %-15s %-15s %-15s %-15s \n", "BRAND", "MODEL", "CATEGORY", "PRICE", "DESCRIPTION");
 		System.out.println("=======================================================================================");
+		int counter = 1;
 		for (Products products : menu) {
-			System.out.println(products);
+			
+			System.out.println(counter++ + "." +products);
+			}
 		}
+//		else if (userChoice == 2) {
+//			
+//			//add to the arraylist.
+//			//writeToFile method and reprint out the txtfile. 
+//		}
+		else {
+			
+			System.out.println("Thank you and come again!");
+		}
+		
+		
+		
 		
 
 	}
