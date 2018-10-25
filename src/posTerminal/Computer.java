@@ -13,7 +13,7 @@ public class Computer extends Electronics {
 
 	}
 
-	public Computer(String processor, String memory) {
+	public Computer(String processor, int memory) {
 		super(processor, memory);
 
 	}
@@ -33,7 +33,7 @@ public class Computer extends Electronics {
 
 	@Override
 	public String toString() {
-		return storage + "TB";
+		return super.toString()+ String.format("%-15s", storage + "GB");
 	}
 
 }

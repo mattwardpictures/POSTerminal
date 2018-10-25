@@ -13,10 +13,6 @@ public class TVSets extends Electronics {
 
 	}
 
-	public TVSets(String processor, String memory) {
-		super(processor, memory);
-
-	}
 
 	public TVSets(int displaySize, int resolution) {
 		super();
@@ -42,7 +38,7 @@ public class TVSets extends Electronics {
 
 	@Override
 	public String toString() {
-		return displaySize + "\"" + resolution + "P";
+		return super.toString() + String.format("%-15s %-15s", displaySize + "\" ", resolution + "P");
 	}
 
 }

@@ -28,7 +28,7 @@ public class Appliances extends Products {
 
 	@Override
 	public String toString() {
-		return cubicFeet + "cuft.";
+		return super.toString() + String.format("%-15s", cubicFeet + "cuft.");
 	}
 
 }

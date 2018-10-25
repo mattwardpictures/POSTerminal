@@ -2,6 +2,15 @@ package posTerminal;
 
 public class Phones extends Electronics {
 	private double displaySize;
+	private int memory;
+
+	public int getMemory() {
+		return memory;
+	}
+
+	public void setMemory(int memory) {
+		this.memory = memory;
+	}
 
 	public Phones() {
 
@@ -12,10 +21,7 @@ public class Phones extends Electronics {
 
 	}
 
-	public Phones(String processor, String memory) {
-		super(processor, memory);
 
-	}
 
 	public Phones(double displaySize) {
 		super();
@@ -32,7 +38,7 @@ public class Phones extends Electronics {
 
 	@Override
 	public String toString() {
-		return displaySize + "\"";
+		return super.toString() +String.format("%-15s %-15s", displaySize + "\" ", memory + "GB");
 	}
 
 }

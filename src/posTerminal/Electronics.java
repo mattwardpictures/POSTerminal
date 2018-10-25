@@ -2,7 +2,8 @@ package posTerminal;
 
 public class Electronics extends Products {
 
-	private String processor, memory;
+	private String processor; 
+	private int memory;
 
 	public Electronics() {
 
@@ -13,7 +14,7 @@ public class Electronics extends Products {
 
 	}
 
-	public Electronics(String processor, String memory) {
+	public Electronics(String processor, int memory) {
 		super();
 		this.processor = processor;
 		this.memory = memory;
@@ -27,17 +28,17 @@ public class Electronics extends Products {
 		this.processor = processor;
 	}
 
-	public String getMemory() {
+	public int getMemory() {
 		return memory;
 	}
 
-	public void setMemory(String memory) {
+	public void setMemory(int memory) {
 		this.memory = memory;
 	}
 
 	@Override
 	public String toString() {
-		return processor + "GHz " + memory + "GB";
+		return super.toString();
 	}
 
 }

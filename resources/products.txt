@@ -1,0 +1,13 @@
+        
+Samsung         LED             TV              $849.99         65"             2160P          
+Vizio           LED             TV              $899.99         70"             2160P          
+Insignia        LCD             TV              $299.99         55"             1080P          
+Apple           MacBook Pro     Computer        $2099.99        64.0GB         
+HP              A6 Series       Computer        $399.99         0.0GB          
+Apple           iPhone XR       Phones          $749.99         5.8"            64GB           
+Samsung         Galaxy S8       Phones          $549.99         5.8"            64GB           
+Microsoft       XBOX One        Gaming          $299.99         
+Sony            Playstation 4   Gaming          $299.99         
+Samsung         Washer          Appliance       $899.99         4.5cuft.       
+Samsung         Dryer           Appliance       $899.99         7.5cuft.       
+Frigidaire      Refrigerator    Appliance       $689.99         18.0cuft.      
