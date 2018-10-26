@@ -94,6 +94,7 @@ public class Validator {
 	public static String getStringMatchingRegex(Scanner scan, String prompt, String regex) {
 		boolean isValid = false;
 		String input;
+		
 
 		do {
 			input = getString(scan, prompt); // this is calling the getString() method above

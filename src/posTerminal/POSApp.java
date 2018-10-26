@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class POSApp {
 
@@ -17,14 +18,21 @@ public class POSApp {
 	static String fileName = "products.txt";
 
 	public static void main(String[] args) {
+		
 		Scanner scan = new Scanner(System.in);
-
+		Products price = new Products();
+		
+		String cont;
+		int selection;
+		
+		ArrayList<Products> cart = new ArrayList<>();
 		ArrayList<Products> menu = new ArrayList<>();
 
 		TVSets tv1 = new TVSets("Samsung", "LED", "TV", 849.99);
 		tv1.setDisplaySize(65);
 		tv1.setResolution(2160);
-
+		tv1.setPrice(849.99);
+		
 		TVSets tv2 = new TVSets("Vizio", "LED", "TV", 899.99);
 		tv2.setDisplaySize(70);
 		tv2.setResolution(2160);
@@ -90,6 +98,8 @@ public class POSApp {
 		menu.add(app1);
 		menu.add(app2);
 		menu.add(app3);
+		
+		
 
 //		createDirectory();
 //		createFile(directoryFolder, fileName);
@@ -102,7 +112,14 @@ public class POSApp {
 				1, 3);
 		System.out.println(" ");
 
+	
+
+		
+		
 		if (userChoice == 1) {
+			
+			
+		
 			System.out.printf("%-17s %-15s %-15s %-15s %-15s \n", "BRAND", "MODEL", "CATEGORY", "PRICE",
 					"ITEM SPECIFICATIONS");
 			System.out.println(
@@ -112,6 +129,79 @@ public class POSApp {
 
 				System.out.println(counter++ + "." + products);
 			}
+			
+			do {
+			
+			selection = Validator.getInt(scan, "\nPlease enter the number associated with your item choice!");
+			selection -= 1;
+			
+			
+			
+			cart.add(menu.get(selection));
+			
+			
+			
+			
+			
+			System.out.println("\nGreat! We've added the " + menu.get(selection)+ "to your cart!");
+			
+			 cont = Validator.getString(scan, "Would you like to purchase anything else? Y/N\n");
+			
+					
+			
+			
+			} while (cont.equalsIgnoreCase("Y"));
+			
+			double total = 0;
+			
+			System.out.println("Here is your cart: \n"); //Printing user's cart
+			for (int i = 0; i < cart.size(); i++) {
+				System.out.println(cart.get(i));
+				total += cart.get(i).getPrice();
+				
+			}
+			System.out.println("\nYour total is: " + total);
+			System.out.printf("\nYour tax is: %.2f " , Math.getTax(total));
+			System.out.printf("\nYour grand total is: %.2f" , Math.getGrandTotal(total));
+			
+			String payment = Validator.getString(scan, "\nHow would you like to pay? (Cash/Credit/Check)");
+			
+			if(payment.equalsIgnoreCase("Cash")) {
+				
+				Double userCash = Validator.getDouble(scan, "How much would you like to pay in cash?"); //Paying with Cash
+				
+					if(userCash < Math.getGrandTotal(total)) {
+						
+						System.out.println("Sorry, thats not enough cash!");
+						
+					} else if (userCash == Math.getGrandTotal(total)) {
+						
+						System.out.println("Perfect! Thanks for shopping with us!");
+					
+					} else if(userCash > Math.getGrandTotal(total)) {
+						
+						System.out.printf("Thanks for shopping with us, here's your change! %.2f" , Math.giveChange(Math.getGrandTotal(total), userCash));
+					}
+				
+				
+				
+			} else if (payment.equalsIgnoreCase("Credit")) {
+				
+				String cardName = Validator.getString(scan, "Please enter the name on the card: ");
+				String ccNum = Validator.getStringMatchingRegex(scan, "Please enter credit card number.", "\\d{16}");
+				
+				System.out.println(cardName+ ccNum);
+				
+			} else if (payment.equalsIgnoreCase("Check")) {
+				
+				
+				
+			}
+			
+
+			
+	
+			
 		}
 //		else if (userChoice == 2) {
 //			
