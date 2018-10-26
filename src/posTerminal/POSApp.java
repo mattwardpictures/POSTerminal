@@ -20,7 +20,7 @@ public class POSApp {
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
-		Products price = new Products();
+		
 		
 		String cont;
 		int selection;
@@ -168,31 +168,18 @@ public class POSApp {
 			
 			if(payment.equalsIgnoreCase("Cash")) {
 				
-				Double userCash = Validator.getDouble(scan, "How much would you like to pay in cash?"); //Paying with Cash
-				
-					if(userCash < Math.getGrandTotal(total)) {
-						
-						System.out.println("Sorry, thats not enough cash!");
-						
-					} else if (userCash == Math.getGrandTotal(total)) {
-						
-						System.out.println("Perfect! Thanks for shopping with us!");
-					
-					} else if(userCash > Math.getGrandTotal(total)) {
-						
-						System.out.printf("Thanks for shopping with us, here's your change! %.2f" , Math.giveChange(Math.getGrandTotal(total), userCash));
-					}
+				payCash(scan, total);
 				
 				
 				
 			} else if (payment.equalsIgnoreCase("Credit")) {
 				
-				String cardName = Validator.getString(scan, "Please enter the name on the card: ");
-				String ccNum = Validator.getStringMatchingRegex(scan, "Please enter credit card number.", "\\d{16}");
+				creditPay(scan, cart, total);
 				
-				System.out.println(cardName+ ccNum);
 				
 			} else if (payment.equalsIgnoreCase("Check")) {
+				
+				checkFormat(scan);
 				
 				
 				
@@ -213,6 +200,59 @@ public class POSApp {
 			System.out.println("Thank you and come again!");
 		}
 
+	}
+
+	private static void payCash(Scanner scan, double total) {
+		Double userCash = Validator.getDouble(scan, "How much would you like to pay in cash?"); //Paying with Cash
+		
+			if(userCash < Math.getGrandTotal(total)) {
+				
+				System.out.println("Sorry, thats not enough cash!");
+				
+			} else if (userCash == Math.getGrandTotal(total)) {
+				
+				System.out.println("Perfect! Thanks for shopping with us!");
+			
+			} else if(userCash > Math.getGrandTotal(total)) {
+				
+				System.out.printf("Thanks for shopping with us, here's your change! %.2f" , Math.giveChange(Math.getGrandTotal(total), userCash));
+			}
+	}
+
+	private static void creditPay(Scanner scan, ArrayList<Products> cart, double total) {
+		String cardName = Validator.getString(scan, "Please enter the name on the card: ");
+		String ccNum = Validator.getStringMatchingRegex(scan, "Please enter credit card number.", "\\d{16}");
+		String cardExp = Validator.getStringMatchingRegex(scan, "Please enter credit card expiration date. mm/yy", "^(0[1-9]|1[012])[- /.](18|19|20|21|22|23|24)");
+		String cvv = Validator.getStringMatchingRegex(scan, "Please enter 3 digit CVV.", "\\d{3}");
+		
+		System.out.println("Card info: "+ cardName + " " + ccNum + " " + cardExp + " " + cvv);
+		
+		System.out.println("Your payment was approved here is your receipt: ");
+		
+		for (int i = 0; i < cart.size(); i++) {
+			System.out.println(cart.get(i));
+			
+			
+		}
+
+		
+		System.out.println("\nSub-total: " + total);
+		System.out.printf("\nTax: %.2f " , Math.getTax(total));
+		System.out.printf("\nGrand total: %.2f" , Math.getGrandTotal(total));
+		System.out.println(" ");
+		String lastFour = ccNum.substring(11, 15);
+		System.out.println("");
+		System.out.println(cardName);
+		System.out.println("\nxxxxxxxxxxxx"+ lastFour + " " + cardExp + " " + cvv);
+		System.out.println("Approved.\nThank you and come again!");
+	}
+
+	private static void checkFormat(Scanner scan) {
+		String checkName = Validator.getString(scan, "Please enter the name on the check: ");
+		String routing = Validator.getStringMatchingRegex(scan, "Please enter routing number: ", "\\d{9}");
+		String bankNum = Validator.getStringMatchingRegex(scan, "Please enter bank account number:", "\\d{9}");
+		String checkNum = Validator.getStringMatchingRegex(scan, "Enter check number: ", "\\d{4}" );
+		System.out.println("Check info: " + checkName + " " + routing + " "+ bankNum + " " + checkNum);
 	}
 
 	public static void createDirectory() {
