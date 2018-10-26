@@ -12,21 +12,21 @@ public class Validator {
 		return s;
 	}
 
-	public static String getString(Scanner sc, String prompt, String studentChosen) {
+	public static String getString(Scanner sc, String prompt, String cashCredCheck) {
 		System.out.print(prompt);
 		// read user entry
-		String s = sc.nextLine();
+		cashCredCheck = sc.nextLine();
 		boolean isValid = false;
 		while (!isValid) {
-			if (!s.equalsIgnoreCase("hometown") && !s.equalsIgnoreCase("food")) {
-				System.out.println("Please enter hometown or food: ");
-				s = sc.nextLine();
+			if (!cashCredCheck.equalsIgnoreCase("cash") && !cashCredCheck.equalsIgnoreCase("credit") && !cashCredCheck.equalsIgnoreCase("check")) {
+				System.out.println("We only accept cash, credit, or checks! ");
+				cashCredCheck = sc.nextLine();
 				isValid = false;
 			} else {
 				isValid = true;
 			}
 		}
-		return s;
+		return cashCredCheck;
 	}
 
 	public static int getInt(Scanner sc, String prompt) {
