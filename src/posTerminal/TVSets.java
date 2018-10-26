@@ -1,7 +1,6 @@
 package posTerminal;
 
-public class TVSets extends Electronics {
-
+public class TVSets extends Products {
 	private int displaySize, resolution;
 
 	public TVSets() {
@@ -12,7 +11,6 @@ public class TVSets extends Electronics {
 		super(make, category, name, price);
 
 	}
-
 
 	public TVSets(int displaySize, int resolution) {
 		super();
@@ -38,7 +36,8 @@ public class TVSets extends Electronics {
 
 	@Override
 	public String toString() {
-		return super.toString() + String.format("%-15s %-15s", displaySize + "\" ", resolution + "P");
+		return super.toString() + String.format("%-25s %-35s", "Screen Size: " + displaySize + "\" ",
+				"Resolution: " + resolution + "P");
 	}
 
 }

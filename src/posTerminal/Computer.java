@@ -1,7 +1,8 @@
 package posTerminal;
 
-public class Computer extends Electronics {
-
+public class Computer extends Products {
+	private String cpuInfo, gpuInfo;
+	private int memory;
 	private double storage;
 
 	public Computer() {
@@ -13,14 +14,36 @@ public class Computer extends Electronics {
 
 	}
 
-	public Computer(String processor, int memory) {
-		super(processor, memory);
-
+	public Computer(String cpuInfo, String gpuInfo, int memory, double storage) {
+		super();
+		this.gpuInfo = gpuInfo;
+		this.cpuInfo = cpuInfo;
+		this.memory = memory;
+		this.storage = storage;
 	}
 
-	public Computer(double storage) {
-		super();
-		this.storage = storage;
+	public String getGpuInfo() {
+		return gpuInfo;
+	}
+
+	public void setGpuInfo(String gpuInfo) {
+		this.gpuInfo = gpuInfo;
+	}
+
+	public String getCpuInfo() {
+		return cpuInfo;
+	}
+
+	public void setCpuInfo(String cpuInfo) {
+		this.cpuInfo = cpuInfo;
+	}
+
+	public double getMemory() {
+		return memory;
+	}
+
+	public void setMemory(int memory) {
+		this.memory = memory;
 	}
 
 	public double getStorage() {
@@ -33,7 +56,8 @@ public class Computer extends Electronics {
 
 	@Override
 	public String toString() {
-		return super.toString()+ String.format("%-15s", storage + "GB");
+		return super.toString() + String.format("%-25s %-35s %-25s %-15s", "CPU: " + cpuInfo, "GPU: " + gpuInfo,
+				"Memory: " + memory + "GB RAM", "Storage: " + storage + "TB");
 	}
 
 }

@@ -17,7 +17,7 @@ public class POSApp {
 	static String fileName = "products.txt";
 
 	public static void main(String[] args) {
-		Scanner scan = new Scanner (System.in);
+		Scanner scan = new Scanner(System.in);
 
 		ArrayList<Products> menu = new ArrayList<>();
 
@@ -33,27 +33,41 @@ public class POSApp {
 		tv3.setDisplaySize(55);
 		tv3.setResolution(1080);
 
-		Computer cpu1 = new Computer("Apple", "MacBook Pro", "Computer", 2099.99);
+		Computer cpu1 = new Computer("Apple", "MacBook Pro 15\"", "Computer", 2099.99);
 		cpu1.setStorage(64);
+		cpu1.setMemory(16);
+		cpu1.setCpuInfo("Intel Core i7");
+		cpu1.setGpuInfo("Radeon Pro 560X 4GB GDDR5");
 
 		Computer cpu2 = new Computer("HP", "A6 Series", "Computer", 399.99);
-		cpu2.setStorage(8);
+		cpu2.setCpuInfo("Intel Core i3");
+		cpu2.setGpuInfo(" ");
+		cpu2.setStorage(0.5);
+		cpu2.setMemory(8);
 
 		Phones phone1 = new Phones("Apple", "iPhone XR", "Phones", 749.99);
+		phone1.setCpuInfo("A12 Bionic");
 		phone1.setDisplaySize(5.8);
 		phone1.setMemory(64);
 
 		Phones phone2 = new Phones("Samsung", "Galaxy S8", "Phones", 549.99);
 		phone2.setDisplaySize(5.8);
+		phone2.setCpuInfo("Qualcomm Snapdragon 835");
 		phone2.setMemory(64);
 
-		Electronics game1 = new Electronics("Microsoft", "XBOX One", "Gaming", 299.99);
-		game1.setMemory(1);
-		game1.setProcessor("AMD Custom");
+		GameConsole game1 = new GameConsole("Microsoft", "XBOX One X", "Gaming", 299.99);
+		game1.setMemory(8);
+		game1.setResolution(4096);
+		game1.setStorage(1);
+		game1.setGpuInfo("Scorpio 12GB GDDR5");
+		game1.setCpuInfo("AMD Custom 8-Core");
 
-		Electronics game2 = new Electronics("Sony", "Playstation 4", "Gaming", 299.99);
-		game2.setMemory(1);
-		game2.setProcessor("AMD Custom 8 Core");
+		GameConsole game2 = new GameConsole("Sony", "Playstation 4", "Gaming", 299.99);
+		game2.setMemory(8);
+		game2.setResolution(4096);
+		game2.setStorage(1);
+		game2.setGpuInfo("AMD Radeon 8GB GDDR5");
+		game2.setCpuInfo("AMD Jaguar 8-Core");
 
 		Appliances app1 = new Appliances("Samsung", "Washer", "Appliance", 899.99);
 		app1.setCubicFeet(4.5);
@@ -76,25 +90,27 @@ public class POSApp {
 		menu.add(app1);
 		menu.add(app2);
 		menu.add(app3);
-		
+
 //		createDirectory();
 //		createFile(directoryFolder, fileName);
-		//writeToFile(directoryFolder, fileName, menu);
-		
-		
+		// writeToFile(directoryFolder, fileName, menu);
+
 		System.out.println("Welcome Best Butt!");
 		System.out.println("How can we help you today?");
-	    int userChoice=Validator.getInt(scan, "1.Show our most current inventory, and start your order. \n2.Add to our inventory.\n3.Exit the store." , 1, 3);
+		int userChoice = Validator.getInt(scan,
+				"1.Show our most current inventory, and start your order. \n2.Add to our inventory.\n3.Exit the store.\n",
+				1, 3);
 		System.out.println(" ");
-		
-		
+
 		if (userChoice == 1) {
-		System.out.printf("%-15s %-15s %-15s %-15s %-15s \n", "BRAND", "MODEL", "CATEGORY", "PRICE", "DESCRIPTION");
-		System.out.println("=======================================================================================");
-		int counter = 1;
-		for (Products products : menu) {
-			
-			System.out.println(counter++ + "." +products);
+			System.out.printf("%-17s %-15s %-15s %-15s %-15s \n", "BRAND", "MODEL", "CATEGORY", "PRICE",
+					"ITEM SPECIFICATIONS");
+			System.out.println(
+					"======================================================================================================================================");
+			int counter = 1;
+			for (Products products : menu) {
+
+				System.out.println(counter++ + "." + products);
 			}
 		}
 //		else if (userChoice == 2) {
@@ -103,13 +119,9 @@ public class POSApp {
 //			//writeToFile method and reprint out the txtfile. 
 //		}
 		else {
-			
+
 			System.out.println("Thank you and come again!");
 		}
-		
-		
-		
-		
 
 	}
 
