@@ -27,20 +27,20 @@ public class POSApp {
 		ArrayList<Products> menu = new ArrayList<>(); // Menu Array or Inventory List
 
 		/*
-		 * ======================== INVENTORY ========================
+		 * ======================== INVENTORY (ArrayList menu) ========================
 		 */
 
 		// TELEVISIONS
-		TVSets tv1 = new TVSets("Samsung", "LED", "TV", 849.99);
+		TVSets tv1 = new TVSets("Samsung", "NU7100 Series", "LED TV", 849.99);
 		tv1.setDisplaySize(65);
 		tv1.setResolution(2160);
 		tv1.setPrice(849.99);
 
-		TVSets tv2 = new TVSets("Vizio", "LED", "TV", 899.99);
+		TVSets tv2 = new TVSets("Vizio", "E-Series E70-F3", "LED TV", 899.99);
 		tv2.setDisplaySize(70);
 		tv2.setResolution(2160);
 
-		TVSets tv3 = new TVSets("Insignia", "LCD", "TV", 299.99);
+		TVSets tv3 = new TVSets("Insignia", "NS-55D510NA19", "LCD TV", 299.99);
 		tv3.setDisplaySize(55);
 		tv3.setResolution(1080);
 
@@ -71,14 +71,14 @@ public class POSApp {
 		// GAME CONSOLES
 		GameConsole game1 = new GameConsole("Microsoft", "XBOX One X", "Gaming", 299.99);
 		game1.setMemory(8);
-		game1.setResolution(4096);
+		game1.setResolution(2160);
 		game1.setStorage(1);
 		game1.setGpuInfo("Scorpio 12GB GDDR5");
 		game1.setCpuInfo("AMD Custom 8-Core");
 
 		GameConsole game2 = new GameConsole("Sony", "Playstation 4", "Gaming", 299.99);
 		game2.setMemory(8);
-		game2.setResolution(4096);
+		game2.setResolution(2160);
 		game2.setStorage(1);
 		game2.setGpuInfo("AMD Radeon 8GB GDDR5");
 		game2.setCpuInfo("AMD Jaguar 8-Core");
@@ -111,35 +111,59 @@ public class POSApp {
 //		createFile(directoryFolder, fileName);
 		// writeToFile(directoryFolder, fileName, menu);
 
-		System.out.println("Welcome Best Butt!");
-		System.out.println("How can we help you today?");
+		/*
+		 * =============================== GREETING ===============================
+		 */
+
+		System.out.println(" ");
+		System.out.println("        /BBBBBBBBBBB\\          ");
+		System.out.println("      /BBBBBBBBBBBBBBB\\        ");
+		System.out.println("    /BBBBBBBBBBBBBBBBBBB\\      ");
+		System.out.println("   /BBBBBBBBBBBBBBBBBBBBB\\      ===============");
+		System.out.println("  /BB\\ \\BBBBBBBBBBBBBBBBBB\\       Welcome To");
+		System.out.println(" /BBBB/ TBB/ TBB/ TBB/ BBBB\\        TINA'S");
+		System.out.println("|BBBB/======== ========\\BBBB|     MICRO GOODS");
+		System.out.println("|BBBB||      |=|      ||BBBB|   ===============");
+		System.out.println("|BBBB||   @  | |  @   ||BBBB|    ");
+		System.out.println("|BBBB|\\_____/   \\_____/|BBBB|   ");
+		System.out.println("|BBBB\\      \\___/      /BBBB|   ");
+		System.out.println(" ");
+		System.out.println("               How can we help you today?\n");
 		int userChoice = Validator.getInt(scan,
 				"1.Show our most current inventory, and start your order. \n2.Add to our inventory.\n3.Exit the store.\n",
 				1, 3);
 		System.out.println(" ");
 
-		if (userChoice == 1) {
+		if (userChoice == 1) { // CHOICE #1: SHOW INVENTORY LIST
 
-			System.out.printf("%-17s %-15s %-15s %-15s %-15s \n", "BRAND", "MODEL", "CATEGORY", "PRICE",
+			// INVENTORY LIST HEADER
+			System.out.printf("%-3s %-25s \n", " ", "STORE DIRECTORY:");
+			System.out.println(" ");
+			System.out.printf("%-3s %-15s %-20s %-15s %-15s %-15s \n", " ", "BRAND", "MODEL", "CATEGORY", "PRICE",
 					"ITEM SPECIFICATIONS");
-			System.out.println(
-					"======================================================================================================================================");
-			int counter = 1;
-			for (Products products : menu) {
 
-				System.out.println(counter++ + "." + products);
+			for (int i = 0; i < 190; i++) { // HEADER BORDER: We used a for loop instead
+				System.out.print("="); // of just leaning on the "=" key for the width of
+			} // the list. 190 is approximate.
+
+			System.out.println(" ");
+
+			int counter = 1;
+
+			// INVENTORY LIST PRINTOUT
+			for (Products products : menu) {
+				System.out.printf("%-3s %-175s \n", counter++ + ".", products);
 			}
 
 			do {
-
-				selection = Validator.getInt(scan, "\nPlease enter the number associated with your item choice!");
+				selection = Validator.getInt(scan, "\nPlease enter the number associated with your item choice!\n");
 				selection -= 1;
 
 				cart.add(menu.get(selection));
 
-				System.out.println("\nGreat! We've added the " + menu.get(selection) + "to your cart!");
+				System.out.println("\nGreat! We've added the following item(s) to your cart! \n" + menu.get(selection));
 
-				cont = Validator.getString(scan, "Would you like to purchase anything else? Y/N\n");
+				cont = Validator.getString(scan, "\nWould you like to purchase anything else? Y/N\n");
 
 			} while (cont.equalsIgnoreCase("Y"));
 
@@ -151,11 +175,11 @@ public class POSApp {
 				total += cart.get(i).getPrice();
 
 			}
-			System.out.println("\nYour total is: " + total);
+			System.out.printf("\nYour total is: %.2f", total);
 			System.out.printf("\nYour tax is: %.2f ", Math.getTax(total));
 			System.out.printf("\nYour grand total is: %.2f", Math.getGrandTotal(total));
 
-			String payment = Validator.getString(scan, "\nHow would you like to pay? (Cash/Credit/Check)");
+			String payment = Validator.getString(scan, "\nHow would you like to pay? (Cash/Credit/Check)\n");
 
 			if (payment.equalsIgnoreCase("Cash")) {
 
@@ -190,7 +214,7 @@ public class POSApp {
 
 	// CASH PAY: If the user pays cash...
 	private static void payCash(Scanner scan, ArrayList<Products> cart, double total) {
-		Double userCash = Validator.getDouble(scan, "How much would you like to pay in cash?"); // Paying with Cash
+		Double userCash = Validator.getDouble(scan, "How much would you like to pay in cash?\n"); // Paying with Cash
 
 		if (userCash < Math.getGrandTotal(total)) {
 
@@ -231,7 +255,7 @@ public class POSApp {
 	private static void creditPay(Scanner scan, ArrayList<Products> cart, double total) {
 
 		// We're getting the user's name, credit card number, expiration date, and CVV.
-		String cardName = Validator.getString(scan, "Please enter the name on the card: ");
+		String cardName = Validator.getString(scan, "Please enter the name on the card: \n");
 		String ccNum = Validator.getStringMatchingRegex(scan, "Please enter credit card number.", "\\d{16}");
 		String cardExp = Validator.getStringMatchingRegex(scan, "Please enter credit card expiration date. mm/yy",
 				"^(0[1-9]|1[012])[- /.](18|19|20|21|22|23|24)");
@@ -239,6 +263,7 @@ public class POSApp {
 
 		// Printing out the user's credit card info
 		System.out.println("Card info: " + cardName + " " + ccNum + " " + cardExp + " " + cvv);
+		System.out.println(" ");
 
 		// RECEIPT BLOCK
 		System.out.println("Your payment was approved here is your receipt: ");

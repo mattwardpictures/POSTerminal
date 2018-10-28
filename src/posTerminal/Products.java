@@ -6,10 +6,10 @@ public class Products {
 
 	}
 
-	private  String make;
+	private String make;
 	private String category;
-	private  String name;
-	private  double price;
+	private String name;
+	private double price;
 	int x;
 
 	public Products(String make, String category, String name, double price) {
@@ -20,7 +20,7 @@ public class Products {
 		this.price = price;
 	}
 
-	public  String getMake() {
+	public String getMake() {
 		return make;
 	}
 
@@ -44,7 +44,7 @@ public class Products {
 		this.name = name;
 	}
 
-	public  double getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
@@ -54,8 +54,7 @@ public class Products {
 
 	@Override
 	public String toString() {
-		return String.format("%-15s %-15s %-15s %-15s ",make, category, name, "$" + price);
+		return String.format("%-15s %-20s %-15s %-15s ", make, category, name, "$" + price);
 	}
-
 
 }
