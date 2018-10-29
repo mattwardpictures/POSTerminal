@@ -15,6 +15,7 @@ public class POSApp {
 
 	static String directoryFolder = "resources";
 	static String fileName = "products.txt";
+	static Double userCash;
 
 	public static void main(String[] args) {
 
@@ -183,8 +184,12 @@ public class POSApp {
 			String payment = Validator.getString(scan, "\nHow would you like to pay? (Cash/Credit/Check)\n");
 
 			if (payment.equalsIgnoreCase("Cash")) {
+				
+				do {
 
 				payCash(scan, cart, total);
+				
+			} while (userCash < Math.getGrandTotal(total));
 
 			} else if (payment.equalsIgnoreCase("Credit")) {
 
@@ -219,7 +224,7 @@ public class POSApp {
 
 	// CASH PAY: If the user pays cash...
 	private static void payCash(Scanner scan, ArrayList<Products> cart, double total) {
-		Double userCash = Validator.getDouble(scan, "How much would you like to pay in cash?\n"); // Paying with Cash
+		userCash = Validator.getDouble(scan, "How much would you like to pay in cash?\n"); // Paying with Cash
 
 		if (userCash < Math.getGrandTotal(total)) {
 
@@ -260,7 +265,7 @@ public class POSApp {
 	private static void creditPay(Scanner scan, ArrayList<Products> cart, double total) {
 
 		// We're getting the user's name, credit card number, expiration date, and CVV.
-		String cardName = Validator.getString(scan, "Please enter the name on the card: \n");
+		String cardName = Validator.getCardString(scan, "Please enter the name on the card: \n");
 		String ccNum = Validator.getStringMatchingRegex(scan, "Please enter credit card number.", "\\d{16}");
 		String cardExp = Validator.getStringMatchingRegex(scan, "Please enter credit card expiration date. mm/yy",
 				"^(0[1-9]|1[012])[- /.](18|19|20|21|22|23|24)");

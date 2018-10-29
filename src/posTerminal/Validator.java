@@ -5,6 +5,14 @@ import java.util.Scanner;
 // this is a concrete class that can be used over and over again
 // you can also add your own validation methods here
 public class Validator {
+	
+	public static String getCardString(Scanner sc, String prompt) {
+		System.out.print(prompt);
+		String s = sc.nextLine(); // read user entry
+		return s;
+	}
+	
+	
 	public static String getString(Scanner sc, String prompt) {
 		System.out.print(prompt);
 		String s = sc.next(); // read user entry
