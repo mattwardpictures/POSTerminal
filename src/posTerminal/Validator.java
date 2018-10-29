@@ -105,7 +105,7 @@ public class Validator {
 		
 
 		do {
-			input = getString(scan, prompt); // this is calling the getString() method above
+			input = getCardString(scan, prompt); // this is calling the getString() method above
 			if (input.matches(regex)) {
 				isValid = true;
 			} else {

@@ -312,7 +312,7 @@ public class POSApp {
 
 		// We're getting the user's name, credit card number, expiration date, and CVV.
 		String cardName = Validator.getStringMatchingRegex(scan, "Please enter the name on the card: \n",
-				"[A-Za-z]{2,30}[A-Za-z]{2,30}");
+				"[A-Za-z]{2,30}\\s[A-Za-z]{2,30}");
 		String ccNum = Validator.getStringMatchingRegex(scan, "Please enter credit card number.", "\\d{16}");
 		String cardExp = Validator.getStringMatchingRegex(scan, "Please enter credit card expiration date. mm/yy",
 				"^(0[1-9]|1[012])[- /.](18|19|20|21|22|23|24)");
@@ -359,7 +359,7 @@ public class POSApp {
 	private static void checkFormat(Scanner scan, ArrayList<Products> cart, double total) {
 
 		// We're getting the user's name, routing#, bank#, and check#.
-		String checkName = Validator.getString(scan, "Please enter the name on the check: ");
+		String checkName = Validator.getStringMatchingRegex(scan, "Please enter the name on the check: ", "[A-Za-z]{2,30}\\s[A-Za-z]{2,30}");
 		String routing = Validator.getStringMatchingRegex(scan, "Please enter routing number: ", "\\d{9}");
 		String bankNum = Validator.getStringMatchingRegex(scan, "Please enter bank account number:", "\\d{9}");
 		String checkNum = Validator.getStringMatchingRegex(scan, "Enter check number: ", "\\d{4}");
