@@ -208,8 +208,10 @@ public class POSApp {
 
 			// add to the arraylist.
 			do {
-				System.out.println(
-						"Welcome to Tina's Micro Goods inventory log. \nIf you are a vendor, you are able to add inventory items to the following categories: \n(Television, Appliance, Computer, Phone or Gaming Console.).");
+				System.out.println("Welcome to Tina's Micro Goods inventory log.");
+				System.out.println("CURRENT INVENTORY");
+				readFromFile(directoryFolder, fileName);
+				System.out.println("\nIf you are a vendor, you are able to add inventory items to the following categories: \n(Television, Appliance, Computer, Phone or Gaming Console).");
 				String choice = Validator.getString(scan, "Please enter the category.");
 				ProductCreator.addProduct(p, addInventory, choice);
 
