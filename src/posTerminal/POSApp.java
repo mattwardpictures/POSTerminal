@@ -161,7 +161,8 @@ public class POSApp {
 			}
 
 			do {
-				selection = Validator.getInt(scan, "\nPlease enter the number associated with your item choice!\n", 1, 12);
+				selection = Validator.getInt(scan, "\nPlease enter the number associated with your item choice!\n", 1,
+						12);
 				selection -= 1;
 
 				cart.add(menu.get(selection));
@@ -180,8 +181,8 @@ public class POSApp {
 			}
 			System.out.println(" ");
 			for (int i = 0; i < cart.size(); i++) {
-				System.out.println(
-						cart.get(i).getMake() + " " + cart.get(i).getCategory() + " " + cart.get(i).getPrice());
+				System.out.printf("%-35s %10s", cart.get(i).getMake() + " " + cart.get(i).getCategory(),
+						cart.get(i).getPrice() + "\n");
 				total += cart.get(i).getPrice();
 
 			}
@@ -270,8 +271,8 @@ public class POSApp {
 			System.out.println("");
 
 			for (int i = 0; i < cart.size(); i++) {
-				System.out.println(
-						cart.get(i).getMake() + " " + cart.get(i).getCategory() + " " + cart.get(i).getPrice());
+				System.out.printf("%-35s %10s", cart.get(i).getMake() + " " + cart.get(i).getCategory(),
+						cart.get(i).getPrice() + "\n");
 			}
 			System.out.println(" ");
 			for (int i = 0; i < 30; i++) {
@@ -300,8 +301,8 @@ public class POSApp {
 			}
 			System.out.println("");
 			for (int i = 0; i < cart.size(); i++) {
-				System.out.println(
-						cart.get(i).getMake() + " " + cart.get(i).getCategory() + " " + cart.get(i).getPrice());
+				System.out.printf("%-35s %10s", cart.get(i).getMake() + " " + cart.get(i).getCategory(),
+						cart.get(i).getPrice() + "\n");
 			}
 			System.out.println(" ");
 			for (int i = 0; i < 30; i++) {
@@ -325,9 +326,10 @@ public class POSApp {
 	private static void creditPay(Scanner scan, ArrayList<Products> cart, double total) {
 
 		// We're getting the user's name, credit card number, expiration date, and CVV.
-		String cardName = Validator.getStringMatchingRegex(scan, "Please enter the name on the card: (First/Last)\n",
+		String cardName = Validator.getStringMatchingRegex(scan, "Please enter the name on the card: (First Last)\n",
 				"[A-Za-z]{2,30}\\s[A-Za-z]{2,30}");
-		String ccNum = Validator.getStringMatchingRegex(scan, "Please enter credit card number. (16 Digits)", "\\d{16}");
+		String ccNum = Validator.getStringMatchingRegex(scan, "Please enter credit card number. (16 Digits)",
+				"\\d{16}");
 		String cardExp = Validator.getStringMatchingRegex(scan, "Please enter credit card expiration date. mm/yy",
 				"^(0[1-9]|1[012])[- /.](18|19|20|21|22|23|24)");
 		String cvv = Validator.getStringMatchingRegex(scan, "Please enter 3 digit CVV.", "\\d{3}");
@@ -344,8 +346,8 @@ public class POSApp {
 		System.out.println("");
 
 		for (int i = 0; i < cart.size(); i++) {
-			System.out.println(cart.get(i).getMake() + " " + cart.get(i).getCategory() + " " + cart.get(i).getPrice());
-			total += cart.get(i).getPrice();
+			System.out.printf("%-35s %10s", cart.get(i).getMake() + " " + cart.get(i).getCategory(),
+					cart.get(i).getPrice() + "\n");
 
 		}
 		System.out.println(" ");
@@ -374,10 +376,11 @@ public class POSApp {
 	private static void checkFormat(Scanner scan, ArrayList<Products> cart, double total) {
 
 		// We're getting the user's name, routing#, bank#, and check#.
-		String checkName = Validator.getStringMatchingRegex(scan, "Please enter the name on the check: (First/Last)",
+		String checkName = Validator.getStringMatchingRegex(scan, "Please enter the name on the check: (First Last)",
 				"[A-Za-z]{2,30}\\s[A-Za-z]{2,30}");
 		String routing = Validator.getStringMatchingRegex(scan, "Please enter routing number: (9 Digits)", "\\d{9}");
-		String bankNum = Validator.getStringMatchingRegex(scan, "Please enter bank account number: (9 Digits)", "\\d{9}");
+		String bankNum = Validator.getStringMatchingRegex(scan, "Please enter bank account number: (9 Digits)",
+				"\\d{9}");
 		String checkNum = Validator.getStringMatchingRegex(scan, "Enter check number: (4 Digits)", "\\d{4}");
 		System.out.println("Check info: " + checkName + " " + routing + " " + bankNum + " " + checkNum);
 
@@ -389,8 +392,8 @@ public class POSApp {
 		}
 		System.out.println("");
 		for (int i = 0; i < cart.size(); i++) {
-			System.out.println(cart.get(i).getMake() + " " + cart.get(i).getCategory() + " " + cart.get(i).getPrice());
-			total += cart.get(i).getPrice();
+			System.out.printf("%-35s %10s", cart.get(i).getMake() + " " + cart.get(i).getCategory(),
+					cart.get(i).getPrice() + "\n");
 
 		}
 		System.out.println(" ");
