@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class POSApp {
@@ -213,14 +214,20 @@ public class POSApp {
 			String choice = Validator.getString(scan,
 					"Please enter the category.");
 			ProductCreator.addProduct(p,addInventory,choice);
+			
+			
 			writeToFile(directoryFolder, fileName, addInventory);
 			
 			System.out.println("You have the following items to the inventory");
-			System.out.println(p);
-			
+			for (int i = 0; i < addInventory.size(); i++) {
+				
+				System.out.println(addInventory.get(i));
+				
+			}
 			
 			
 			cont =Validator.getString(scan, "Would you like to add another item? Type Yes to continue adding.");
+			
 			}while (cont.equalsIgnoreCase("yes") || cont.equalsIgnoreCase("y"));
 			
 			readFromFile(directoryFolder,fileName);

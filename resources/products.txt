@@ -12,3 +12,5 @@ Samsung         Washer               Appliance       $899.99         Volume: 4.5
 Samsung         Dryer                Appliance       $899.99         Volume: 7.5cuft.         
 Frigidaire      Refrigerator         Appliance       $689.99         Volume: 18.0cuft.        
 Added by vendors: 
+        
+Sharp           Smart TV             Television      $999.99         Screen Size: 65"          Resolution: 1080P                  
