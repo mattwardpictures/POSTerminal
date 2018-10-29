@@ -22,7 +22,8 @@ public class POSApp {
 
 		String cont;
 		int selection;
-
+		
+		Products p = new Products();
 		ArrayList<Products> cart = new ArrayList<>(); // Shopping Cart Array (empty)
 		ArrayList<Products> menu = new ArrayList<>(); // Menu Array or Inventory List
 
@@ -196,11 +197,15 @@ public class POSApp {
 			}
 
 		}
-//		else if (userChoice == 2) {
-//			
-//			//add to the arraylist.
-//			//writeToFile method and reprint out the txtfile. 
-//		}
+		else if (userChoice == 2) {
+			
+			//add to the arraylist.
+			String choice = Validator.getString(scan,
+					"Please enter the category. \n(Television, Appliance, Computer, Phone or Gaming Console.)");
+			ProductCreator.addProduct(p,menu,choice);
+			
+			//writeToFile method and reprint out the txtfile. 
+		}
 		else {
 
 			System.out.println("Thank you and come again!");
