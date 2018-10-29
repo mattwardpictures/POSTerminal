@@ -251,30 +251,34 @@ public class POSApp {
 		} else if (userCash == Math.getGrandTotal(total)) {
 
 			// RECEIPT BLOCK
-			System.out.println("Perfect! Here is your receipt!");
+			System.out.println("\nHere is your receipt!");
+			System.out.println("");
 
 			for (int i = 0; i < cart.size(); i++) {
 				System.out.println(cart.get(i));
 			}
-			System.out.println("\nSub-total: " + total);
-			System.out.printf("\nTax: %.2f ", Math.getTax(total));
-			System.out.printf("\nGrand total: %.2f", Math.getGrandTotal(total));
+			System.out.println("\nSub-total: $" + total);
+			System.out.printf("\nTax: $%.2f ", Math.getTax(total));
+			System.out.printf("\nGrand total: $%.2f", Math.getGrandTotal(total));
 			System.out.println(" ");
 
 		} else if (userCash > Math.getGrandTotal(total)) {
 
-			System.out.printf("Thanks for shopping with us, here's your change! %.2f",
+			System.out.printf("\nThanks for shopping with us, here's your change! $%.2f",
 					Math.giveChange(Math.getGrandTotal(total), userCash));
 
 			// RECEIPT BLOCK
-			System.out.println("\nPerfect! Here is your receipt!");
+			System.out.println("");
+			System.out.println("\nHere is your receipt!");
+			System.out.println("");
 			for (int i = 0; i < cart.size(); i++) {
 				System.out.println(cart.get(i));
 			}
-			System.out.println("\nSub-total: " + total);
-			System.out.printf("\nTax: %.2f ", Math.getTax(total));
-			System.out.printf("\nGrand total: %.2f", Math.getGrandTotal(total));
-			System.out.println("Thank you and come again.");
+			System.out.println("\nSub-total: $" + total);
+			System.out.printf("\nTax: $%.2f ", Math.getTax(total));
+			System.out.printf("\nGrand total: $%.2f", Math.getGrandTotal(total));
+			System.out.println("");
+			System.out.println("\nThank you and come again!");
 		}
 
 	}
@@ -295,21 +299,24 @@ public class POSApp {
 		System.out.println(" ");
 
 		// RECEIPT BLOCK
-		System.out.println("Your payment was approved here is your receipt: ");
+		System.out.println("Your payment was approved. Here is your receipt: ");
+		System.out.println("");
 
 		for (int i = 0; i < cart.size(); i++) {
 			System.out.println(cart.get(i));
 
 		}
-		System.out.println("\nSub-total: " + total);
-		System.out.printf("\nTax: %.2f ", Math.getTax(total));
-		System.out.printf("\nGrand total: %.2f", Math.getGrandTotal(total));
+		System.out.println("\nSub-total: $" + total);
+		System.out.printf("\nTax: $%.2f ", Math.getTax(total));
+		System.out.printf("\nGrand total: $%.2f", Math.getGrandTotal(total));
 		System.out.println(" ");
 		String lastFour = ccNum.substring(11, 15);
 		System.out.println("");
 		System.out.println(cardName);
 		System.out.println("\nxxxxxxxxxxxx" + lastFour + " " + cardExp + " " + cvv);
-		System.out.println("Approved.\nThank you and come again!");
+		System.out.println("Approved.");
+		System.out.println("");
+		System.out.println("Thanks for shopping with us and come again!");
 	}
 
 	// CHEQUE PAY: If the user pays with check...
@@ -323,17 +330,21 @@ public class POSApp {
 		System.out.println("Check info: " + checkName + " " + routing + " " + bankNum + " " + checkNum);
 
 		// RECEIPT BLOCK
+		System.out.println("");
 		System.out.println("Here is your recipt: ");
+		System.out.println("");
 		for (int i = 0; i < cart.size(); i++) {
 			System.out.println(cart.get(i));
 
 		}
-		System.out.println("\nSub-total: " + total);
-		System.out.printf("\nTax: %.2f ", Math.getTax(total));
-		System.out.printf("\nGrand total: %.2f", Math.getGrandTotal(total));
-		System.out.println("Name : " + checkName + ", " + checkNum);
+		System.out.println("\nSub-total: $" + total);
+		System.out.printf("\nTax: $%.2f ", Math.getTax(total));
+		System.out.printf("\nGrand total: $%.2f", Math.getGrandTotal(total));
+		System.out.println("");
+		System.out.println("Name: " + checkName + " /" + " Check Number: " + checkNum);
 		System.out.println("Your check will be processed within 2-5 business days.");
-		System.out.println("Thank you for shopping at our store.");
+		System.out.println();
+		System.out.println("Thank you for shopping at our store!");
 	}
 
 	public static void createDirectory() {
