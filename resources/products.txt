@@ -11,7 +11,7 @@ Sony            Playstation 4        Gaming          $299.99         CPU: AMD Ja
 Samsung         Washer               Appliance       $899.99         Volume: 4.5cuft.         
 Samsung         Dryer                Appliance       $899.99         Volume: 7.5cuft.         
 Frigidaire      Refrigerator         Appliance       $689.99         Volume: 18.0cuft.        
+
 Added by vendors: 
-        
-Sharp           Smart TV             Television      $999.99         Screen Size: 65"          Resolution: 1080P                  
-7897            appliance            fake            $10.0           Volume: 50.0cuft.        
+       
+Sharp           Television           Smart TV        $999.99         Screen Size: 65"          Resolution: 1080P                  

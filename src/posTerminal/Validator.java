@@ -120,7 +120,7 @@ public class Validator {
 	public static String getCat(Scanner sc, String prompt) {
         System.out.print(prompt);
         String s = sc.next(); // read user entry
-        if (s.equalsIgnoreCase("Televison")|| s.equalsIgnoreCase("Appliance") || s.equalsIgnoreCase("Computer") || s.equalsIgnoreCase("Game Console") || s.equalsIgnoreCase("Phone")) {
+        if (s.equalsIgnoreCase("Television")|| s.equalsIgnoreCase("Appliance") || s.equalsIgnoreCase("Computer") || s.equalsIgnoreCase("Gaming Console") || s.equalsIgnoreCase("Phone")) {
         sc.nextLine();
         return s;// discard any other data entered on the line
         }
