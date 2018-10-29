@@ -175,11 +175,20 @@ public class POSApp {
 			double total = 0;
 
 			System.out.println("Here is your cart: \n"); // Printing user's cart
+			for (int i = 0; i < 50; i++) {
+				System.out.print("-");
+			}
+			System.out.println(" ");
 			for (int i = 0; i < cart.size(); i++) {
-				System.out.println(cart.get(i));
+				System.out.println(
+						cart.get(i).getMake() + " " + cart.get(i).getCategory() + " " + cart.get(i).getPrice());
 				total += cart.get(i).getPrice();
 
 			}
+			for (int i = 0; i < 50; i++) {
+				System.out.print("*");
+			}
+			System.out.println(" ");
 			System.out.printf("\nYour total is: %.2f", total);
 			System.out.printf("\nYour tax is: %.2f ", Math.getTax(total));
 			System.out.printf("\nYour grand total is: %.2f", Math.getGrandTotal(total));
@@ -211,7 +220,8 @@ public class POSApp {
 				System.out.println("Welcome to Tina's Micro Goods inventory log.");
 				System.out.println("CURRENT INVENTORY");
 				readFromFile(directoryFolder, fileName);
-				System.out.println("\nIf you are a vendor, you are able to add inventory items to the following categories: \n(Television, Appliance, Computer, Phone or Gaming Console).");
+				System.out.println(
+						"\nIf you are a vendor, you are able to add inventory items to the following categories: \n(Television, Appliance, Computer, Phone or Gaming Console).");
 				String choice = Validator.getString(scan, "Please enter the category.");
 				ProductCreator.addProduct(p, addInventory, choice);
 
@@ -254,13 +264,14 @@ public class POSApp {
 
 			// RECEIPT BLOCK
 			System.out.println("\nHere is your receipt!");
-			for (int i = 0; i < 190; i++) {
+			for (int i = 0; i < 50; i++) {
 				System.out.print("-");
 			}
 			System.out.println("");
 
 			for (int i = 0; i < cart.size(); i++) {
-				System.out.println(cart.get(i));
+				System.out.println(
+						cart.get(i).getMake() + " " + cart.get(i).getCategory() + " " + cart.get(i).getPrice());
 			}
 			System.out.println(" ");
 			for (int i = 0; i < 30; i++) {
@@ -284,12 +295,13 @@ public class POSApp {
 			// RECEIPT BLOCK
 			System.out.println("");
 			System.out.println("\nHere is your receipt!");
-			for (int i = 0; i < 190; i++) {
+			for (int i = 0; i < 50; i++) {
 				System.out.print("-");
 			}
 			System.out.println("");
 			for (int i = 0; i < cart.size(); i++) {
-				System.out.println(cart.get(i));
+				System.out.println(
+						cart.get(i).getMake() + " " + cart.get(i).getCategory() + " " + cart.get(i).getPrice());
 			}
 			System.out.println(" ");
 			for (int i = 0; i < 30; i++) {
@@ -326,13 +338,14 @@ public class POSApp {
 
 		// RECEIPT BLOCK
 		System.out.println("Your payment was approved. Here is your receipt: ");
-		for (int i = 0; i < 190; i++) {
+		for (int i = 0; i < 50; i++) {
 			System.out.print("-");
 		}
 		System.out.println("");
 
 		for (int i = 0; i < cart.size(); i++) {
-			System.out.println(cart.get(i));
+			System.out.println(cart.get(i).getMake() + " " + cart.get(i).getCategory() + " " + cart.get(i).getPrice());
+			total += cart.get(i).getPrice();
 
 		}
 		System.out.println(" ");
@@ -361,7 +374,8 @@ public class POSApp {
 	private static void checkFormat(Scanner scan, ArrayList<Products> cart, double total) {
 
 		// We're getting the user's name, routing#, bank#, and check#.
-		String checkName = Validator.getStringMatchingRegex(scan, "Please enter the name on the check: ", "[A-Za-z]{2,30}\\s[A-Za-z]{2,30}");
+		String checkName = Validator.getStringMatchingRegex(scan, "Please enter the name on the check: ",
+				"[A-Za-z]{2,30}\\s[A-Za-z]{2,30}");
 		String routing = Validator.getStringMatchingRegex(scan, "Please enter routing number: ", "\\d{9}");
 		String bankNum = Validator.getStringMatchingRegex(scan, "Please enter bank account number:", "\\d{9}");
 		String checkNum = Validator.getStringMatchingRegex(scan, "Enter check number: ", "\\d{4}");
@@ -370,12 +384,13 @@ public class POSApp {
 		// RECEIPT BLOCK
 		System.out.println("");
 		System.out.println("Here is your recipt: ");
-		for (int i = 0; i < 190; i++) {
+		for (int i = 0; i < 50; i++) {
 			System.out.print("-");
 		}
 		System.out.println("");
 		for (int i = 0; i < cart.size(); i++) {
-			System.out.println(cart.get(i));
+			System.out.println(cart.get(i).getMake() + " " + cart.get(i).getCategory() + " " + cart.get(i).getPrice());
+			total += cart.get(i).getPrice();
 
 		}
 		System.out.println(" ");
