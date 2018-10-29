@@ -1,13 +1,14 @@
-        
-Samsung         LED             TV              $849.99         65"             2160P          
-Vizio           LED             TV              $899.99         70"             2160P          
-Insignia        LCD             TV              $299.99         55"             1080P          
-Apple           MacBook Pro     Computer        $2099.99        64.0GB         
-HP              A6 Series       Computer        $399.99         0.0GB          
-Apple           iPhone XR       Phones          $749.99         5.8"            64GB           
-Samsung         Galaxy S8       Phones          $549.99         5.8"            64GB           
-Microsoft       XBOX One        Gaming          $299.99         
-Sony            Playstation 4   Gaming          $299.99         
-Samsung         Washer          Appliance       $899.99         4.5cuft.       
-Samsung         Dryer           Appliance       $899.99         7.5cuft.       
-Frigidaire      Refrigerator    Appliance       $689.99         18.0cuft.      
+           
+Samsung         NU7100 Series        LED TV          $849.99         Screen Size: 65"          Resolution: 2160P                  
+Vizio           E-Series E70-F3      LED TV          $899.99         Screen Size: 70"          Resolution: 2160P                  
+Insignia        NS-55D510NA19        LCD TV          $299.99         Screen Size: 55"          Resolution: 1080P                  
+Apple           MacBook Pro 15"      Computer        $2099.99        CPU: Intel Core i7        GPU: Radeon Pro 560X 4GB GDDR5      Memory: 16GB RAM          Storage: 64.0TB
+HP              A6 Series            Computer        $399.99         CPU: Intel Core i3        GPU:                                Memory: 8GB RAM           Storage: 0.5TB 
+Apple           iPhone XR            Phones          $749.99         Screen Size: 5.8"         CPU: A12 Bionic                     Memory: 64GB             
+Samsung         Galaxy S8            Phones          $549.99         Screen Size: 5.8"         CPU: Qualcomm Snapdragon 835        Memory: 64GB             
+Microsoft       XBOX One X           Gaming          $299.99         CPU: AMD Custom 8-Core    GPU: Scorpio 12GB GDDR5             Resolution: 2160P         Memory: 8GB RAM Storage: 1TB   
+Sony            Playstation 4        Gaming          $299.99         CPU: AMD Jaguar 8-Core    GPU: AMD Radeon 8GB GDDR5           Resolution: 2160P         Memory: 8GB RAM Storage: 1TB   
+Samsung         Washer               Appliance       $899.99         Volume: 4.5cuft.         
+Samsung         Dryer                Appliance       $899.99         Volume: 7.5cuft.         
+Frigidaire      Refrigerator         Appliance       $689.99         Volume: 18.0cuft.        
+Added by vendors: 

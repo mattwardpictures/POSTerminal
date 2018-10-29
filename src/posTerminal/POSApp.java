@@ -1,8 +1,10 @@
 package posTerminal;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
@@ -27,6 +29,7 @@ public class POSApp {
 		Products p = new Products();
 		ArrayList<Products> cart = new ArrayList<>(); // Shopping Cart Array (empty)
 		ArrayList<Products> menu = new ArrayList<>(); // Menu Array or Inventory List
+		ArrayList<Products> addInventory = new ArrayList<>(); // add to menu inventory
 
 		/*
 		 * ======================== INVENTORY (ArrayList menu) ========================
@@ -205,9 +208,23 @@ public class POSApp {
 		else if (userChoice == 2) {
 			
 			//add to the arraylist.
+			do {
+			System.out.println("Welcome to Tina's Micro Goods inventory log. \nIf you are a vendor, you are able to add inventory items to the following categories: \n(Television, Appliance, Computer, Phone or Gaming Console.).");
 			String choice = Validator.getString(scan,
-					"Please enter the category. \n(Television, Appliance, Computer, Phone or Gaming Console.)");
-			ProductCreator.addProduct(p,menu,choice);
+					"Please enter the category.");
+			ProductCreator.addProduct(p,addInventory,choice);
+			writeToFile(directoryFolder, fileName, addInventory);
+			
+			System.out.println("You have the following items to the inventory");
+			System.out.println(p);
+			
+			
+			
+			cont =Validator.getString(scan, "Would you like to add another item? Type Yes to continue adding.");
+			}while (cont.equalsIgnoreCase("yes") || cont.equalsIgnoreCase("y"));
+			
+			readFromFile(directoryFolder,fileName);
+		
 			
 			//writeToFile method and reprint out the txtfile. 
 		}
@@ -370,6 +387,31 @@ public class POSApp {
 			System.out.println("File was not found!");
 		}
 
+	}
+	
+
+	public static void readFromFile(String directoryFolder, String fileName) {
+		Path filePath = Paths.get(directoryFolder, fileName);
+		File file = filePath.toFile();
+		try {
+		FileReader fr = new FileReader(file);
+		BufferedReader reader = new BufferedReader(fr);  
+		
+		String line = reader.readLine();
+		
+			while (line != null) {
+				System.out.println(line);
+				line = reader.readLine();	
+			}
+			reader.close();
+			
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+		
+		} catch (IOException e) {
+			System.out.println("Contact customer service.");
+		
+		}
 	}
 
 }
