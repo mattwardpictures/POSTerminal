@@ -161,7 +161,7 @@ public class POSApp {
 			}
 
 			do {
-				selection = Validator.getInt(scan, "\nPlease enter the number associated with your item choice!\n");
+				selection = Validator.getInt(scan, "\nPlease enter the number associated with your item choice!\n", 1, 12);
 				selection -= 1;
 
 				cart.add(menu.get(selection));
@@ -222,7 +222,7 @@ public class POSApp {
 				readFromFile(directoryFolder, fileName);
 				System.out.println(
 						"\nIf you are a vendor, you are able to add inventory items to the following categories: \n(Television, Appliance, Computer, Phone or Gaming Console).");
-				String choice = Validator.getString(scan, "Please enter the category.");
+				String choice = Validator.getCat(scan, "Please enter the category.");
 				ProductCreator.addProduct(p, addInventory, choice);
 
 				writeToFile(directoryFolder, fileName, addInventory);

@@ -106,7 +106,7 @@ public class ProductCreator {
 			
 			menu.add(g);
 
-		}
+		} 
 		
 	
 

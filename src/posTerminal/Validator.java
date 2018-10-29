@@ -116,4 +116,19 @@ public class Validator {
 
 		return input;
 	}
+	
+	public static String getCat(Scanner sc, String prompt) {
+        System.out.print(prompt);
+        String s = sc.next(); // read user entry
+        if (s.equalsIgnoreCase("Televison")|| s.equalsIgnoreCase("Appliance") || s.equalsIgnoreCase("Computer") || s.equalsIgnoreCase("Game Console") || s.equalsIgnoreCase("Phone")) {
+        sc.nextLine();
+        return s;// discard any other data entered on the line
+        }
+        else {
+            System.out.println("That is not a valid entry. Please try again.");
+            System.out.print(prompt);
+            s = sc.next();
+            
+        }return s;
+    }
 }
