@@ -252,13 +252,25 @@ public class POSApp {
 
 			// RECEIPT BLOCK
 			System.out.println("\nHere is your receipt!");
+			for (int i = 0; i < 190; i++) {
+				System.out.print("-");
+			}
 			System.out.println("");
 
 			for (int i = 0; i < cart.size(); i++) {
 				System.out.println(cart.get(i));
 			}
-			System.out.println("\nSub-total: $" + total);
-			System.out.printf("\nTax: $%.2f ", Math.getTax(total));
+			System.out.println(" ");
+			for (int i = 0; i < 30; i++) {
+				System.out.print("*");
+			}
+			System.out.printf("\nSub-total: $%.2f", total);
+			System.out.printf("\nTax: $%.2f", Math.getTax(total));
+			System.out.println(" ");
+			for (int i = 0; i < 30; i++) {
+				System.out.print("-");
+			}
+			System.out.println(" ");
 			System.out.printf("\nGrand total: $%.2f", Math.getGrandTotal(total));
 			System.out.println(" ");
 
@@ -270,12 +282,24 @@ public class POSApp {
 			// RECEIPT BLOCK
 			System.out.println("");
 			System.out.println("\nHere is your receipt!");
+			for (int i = 0; i < 190; i++) {
+				System.out.print("-");
+			}
 			System.out.println("");
 			for (int i = 0; i < cart.size(); i++) {
 				System.out.println(cart.get(i));
 			}
-			System.out.println("\nSub-total: $" + total);
-			System.out.printf("\nTax: $%.2f ", Math.getTax(total));
+			System.out.println(" ");
+			for (int i = 0; i < 30; i++) {
+				System.out.print("*");
+			}
+			System.out.printf("\nSub-total: $%.2f", total);
+			System.out.printf("\nTax: $%.2f", Math.getTax(total));
+			System.out.println(" ");
+			for (int i = 0; i < 30; i++) {
+				System.out.print("-");
+			}
+			System.out.println(" ");
 			System.out.printf("\nGrand total: $%.2f", Math.getGrandTotal(total));
 			System.out.println("");
 			System.out.println("\nThank you and come again!");
@@ -300,14 +324,26 @@ public class POSApp {
 
 		// RECEIPT BLOCK
 		System.out.println("Your payment was approved. Here is your receipt: ");
+		for (int i = 0; i < 190; i++) {
+			System.out.print("-");
+		}
 		System.out.println("");
 
 		for (int i = 0; i < cart.size(); i++) {
 			System.out.println(cart.get(i));
 
 		}
-		System.out.println("\nSub-total: $" + total);
+		System.out.println(" ");
+		for (int i = 0; i < 30; i++) {
+			System.out.print("*");
+		}
+		System.out.printf("\nSub-total: $%.2f", total);
 		System.out.printf("\nTax: $%.2f ", Math.getTax(total));
+		System.out.println(" ");
+		for (int i = 0; i < 30; i++) {
+			System.out.print("-");
+		}
+		System.out.println(" ");
 		System.out.printf("\nGrand total: $%.2f", Math.getGrandTotal(total));
 		System.out.println(" ");
 		String lastFour = ccNum.substring(11, 15);
@@ -332,13 +368,25 @@ public class POSApp {
 		// RECEIPT BLOCK
 		System.out.println("");
 		System.out.println("Here is your recipt: ");
+		for (int i = 0; i < 190; i++) {
+			System.out.print("-");
+		}
 		System.out.println("");
 		for (int i = 0; i < cart.size(); i++) {
 			System.out.println(cart.get(i));
 
 		}
-		System.out.println("\nSub-total: $" + total);
-		System.out.printf("\nTax: $%.2f ", Math.getTax(total));
+		System.out.println(" ");
+		for (int i = 0; i < 30; i++) {
+			System.out.print("*");
+		}
+		System.out.printf("\nSub-total: $%.2f", total);
+		System.out.printf("\nTax: $%.2f", Math.getTax(total));
+		System.out.println(" ");
+		for (int i = 0; i < 30; i++) {
+			System.out.print("-");
+		}
+		System.out.println(" ");
 		System.out.printf("\nGrand total: $%.2f", Math.getGrandTotal(total));
 		System.out.println("");
 		System.out.println("Name: " + checkName + " /" + " Check Number: " + checkNum);
