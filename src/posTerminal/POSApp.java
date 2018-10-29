@@ -11,7 +11,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class POSApp {
@@ -26,7 +25,7 @@ public class POSApp {
 
 		String cont;
 		int selection;
-		
+
 		Products p = new Products();
 		ArrayList<Products> cart = new ArrayList<>(); // Shopping Cart Array (empty)
 		ArrayList<Products> menu = new ArrayList<>(); // Menu Array or Inventory List
@@ -188,12 +187,12 @@ public class POSApp {
 			String payment = Validator.getString(scan, "\nHow would you like to pay? (Cash/Credit/Check)\n");
 
 			if (payment.equalsIgnoreCase("Cash")) {
-				
+
 				do {
 
-				payCash(scan, cart, total);
-				
-			} while (userCash < Math.getGrandTotal(total));
+					payCash(scan, cart, total);
+
+				} while (userCash < Math.getGrandTotal(total));
 
 			} else if (payment.equalsIgnoreCase("Credit")) {
 
@@ -205,37 +204,32 @@ public class POSApp {
 
 			}
 
-		}
-		else if (userChoice == 2) {
-			
-			//add to the arraylist.
+		} else if (userChoice == 2) {
+
+			// add to the arraylist.
 			do {
-			System.out.println("Welcome to Tina's Micro Goods inventory log. \nIf you are a vendor, you are able to add inventory items to the following categories: \n(Television, Appliance, Computer, Phone or Gaming Console.).");
-			String choice = Validator.getString(scan,
-					"Please enter the category.");
-			ProductCreator.addProduct(p,addInventory,choice);
-			
-			
-			writeToFile(directoryFolder, fileName, addInventory);
-			
-			System.out.println("You have the following items to the inventory");
-			for (int i = 0; i < addInventory.size(); i++) {
-				
-				System.out.println(addInventory.get(i));
-				
-			}
-			
-			
-			cont =Validator.getString(scan, "Would you like to add another item? Type Yes to continue adding.");
-			
-			}while (cont.equalsIgnoreCase("yes") || cont.equalsIgnoreCase("y"));
-			
-			readFromFile(directoryFolder,fileName);
-		
-			
-			//writeToFile method and reprint out the txtfile. 
-		}
-		else {
+				System.out.println(
+						"Welcome to Tina's Micro Goods inventory log. \nIf you are a vendor, you are able to add inventory items to the following categories: \n(Television, Appliance, Computer, Phone or Gaming Console.).");
+				String choice = Validator.getString(scan, "Please enter the category.");
+				ProductCreator.addProduct(p, addInventory, choice);
+
+				writeToFile(directoryFolder, fileName, addInventory);
+
+				System.out.println("You have the following items to the inventory");
+				for (int i = 0; i < addInventory.size(); i++) {
+
+					System.out.println(addInventory.get(i));
+
+				}
+
+				cont = Validator.getString(scan, "Would you like to add another item? Type Yes to continue adding.");
+
+			} while (cont.equalsIgnoreCase("yes") || cont.equalsIgnoreCase("y"));
+
+			readFromFile(directoryFolder, fileName);
+
+			// writeToFile method and reprint out the txtfile.
+		} else {
 
 			System.out.println("Thank you and come again!");
 		}
@@ -289,7 +283,8 @@ public class POSApp {
 	private static void creditPay(Scanner scan, ArrayList<Products> cart, double total) {
 
 		// We're getting the user's name, credit card number, expiration date, and CVV.
-		String cardName = Validator.getCardString(scan, "Please enter the name on the card: \n");
+		String cardName = Validator.getStringMatchingRegex(scan, "Please enter the name on the card: \n",
+				"[A-Za-z]{2,30}[A-Za-z]{2,30}");
 		String ccNum = Validator.getStringMatchingRegex(scan, "Please enter credit card number.", "\\d{16}");
 		String cardExp = Validator.getStringMatchingRegex(scan, "Please enter credit card expiration date. mm/yy",
 				"^(0[1-9]|1[012])[- /.](18|19|20|21|22|23|24)");
@@ -395,29 +390,28 @@ public class POSApp {
 		}
 
 	}
-	
 
 	public static void readFromFile(String directoryFolder, String fileName) {
 		Path filePath = Paths.get(directoryFolder, fileName);
 		File file = filePath.toFile();
 		try {
-		FileReader fr = new FileReader(file);
-		BufferedReader reader = new BufferedReader(fr);  
-		
-		String line = reader.readLine();
-		
+			FileReader fr = new FileReader(file);
+			BufferedReader reader = new BufferedReader(fr);
+
+			String line = reader.readLine();
+
 			while (line != null) {
 				System.out.println(line);
-				line = reader.readLine();	
+				line = reader.readLine();
 			}
 			reader.close();
-			
+
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found!");
-		
+
 		} catch (IOException e) {
 			System.out.println("Contact customer service.");
-		
+
 		}
 	}
 
